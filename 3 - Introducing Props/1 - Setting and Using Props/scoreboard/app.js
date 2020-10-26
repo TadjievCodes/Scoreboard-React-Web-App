@@ -56,14 +56,20 @@ const App = (props) => {
   return (
     <div className="scoreboard">
       
-      <Header title= "My Scoreboard" totalPlayers={1} />
+      <Header title= "My Scoreboard" totalPlayers={props.intialPlayers.length} />
 
       {/*(First we passed the Props to the Player which are name and score then passed props argumetn to Player Component above)*/}
       {/* Players list*/}
-      <Player name="Guil" score={50} />
-      <Player name="Treasure" score={90} />
-      <Player name="Ashley" score={85} />
-      <Player name="James" score={80} />
+      {/* Now we're looping through an array through map and getting the object values */}
+
+      {props.intialPlayers.map( player =>
+        <Player 
+        name={player.name}
+        score={player.score} 
+        />
+      )}  
+
+      
     </div>
   );
 }
