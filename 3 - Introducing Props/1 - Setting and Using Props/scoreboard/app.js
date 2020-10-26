@@ -68,7 +68,9 @@ const App = () => {
   );
 }
 
+{/* We're passing props of initialPlayers and giving it the players array declared above*/}
+
 ReactDOM.render(
-  <App />,
+  <App intialPlayers={players} />,
   document.getElementById('root')
 );
