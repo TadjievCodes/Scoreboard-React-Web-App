@@ -1,3 +1,26 @@
+ {/* Array containing Objects*/}
+const players = [ 
+   {
+    name: "Guil",
+    score: 50
+  },
+  {
+    name: "Treasure",
+    score: 85
+  },
+  {
+    name: "Ashley",
+    score: 95
+  },
+  {
+    name: "James",
+    score: 80
+  }
+];
+
+
+
+
 const Header = (props) => {
   return (
     <header>
