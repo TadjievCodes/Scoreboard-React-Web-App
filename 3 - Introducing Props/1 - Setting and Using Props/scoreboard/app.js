@@ -48,18 +48,16 @@ const Player = (props) => {
 
 class Counter extends React.Component {
    
-  constructor() {
-     super()
-      this.state = {
+  state = {
         score: 0
       };
-  }
+  
 
   render(){
     return (
     <div className="counter">
       <button className="counter-action decrement"> - </button>
-      <span className="counter-score">{this.props.score}</span>
+      <span className="counter-score">{this.state.score}</span>
       <button className="counter-action increment"> + </button>
     </div>
    );
