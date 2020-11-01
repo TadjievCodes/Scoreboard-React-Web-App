@@ -53,6 +53,11 @@ class Counter extends React.Component {
   state = {
         score: 0
       };
+
+
+  incrementScore() {
+     console.log("Hi, from inside of  incrementScore!");
+  }
   
 
   render(){
@@ -60,11 +65,14 @@ class Counter extends React.Component {
     <div className="counter">
       <button className="counter-action decrement"> - </button>
       <span className="counter-score">{this.state.score}</span>
-      <button className="counter-action increment"> + </button>
+      <button className="counter-action increment" onClick={this.incrementScore}> + </button>
     </div>
    );
   }
 }
+
+
+{/* We're not calling this.incrementScore() as in JS as we just need a reference to it not a call  */}
 
 const App = (props) => {
   return (
