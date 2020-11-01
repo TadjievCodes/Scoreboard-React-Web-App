@@ -46,6 +46,8 @@ const Player = (props) => {
   );
 }
 
+{/*State created through a Class first state Component instead of props */}
+
 class Counter extends React.Component {
    
   state = {
