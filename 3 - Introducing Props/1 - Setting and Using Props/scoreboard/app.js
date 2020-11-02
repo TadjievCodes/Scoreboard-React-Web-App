@@ -1,27 +1,4 @@
  {/* Array containing Objects*/}
-const players = [ 
-   {
-    name: "Guil",
-    score: 50,
-    id: 1
-  },
-  {
-    name: "Treasure",
-    score: 85,
-    id: 2
-  },
-  {
-    name: "Ashley",
-    score: 95,
-    id: 3
-  },
-  {
-    name: "James",
-    score: 80,
-    id: 4
-  }
-];
-
 
 
 
@@ -91,38 +68,45 @@ class App extends React.Component {
      players: [
         {
     name: "Guil",
-    score: 50,
     id: 1
   },
   {
     name: "Treasure",
-    score: 85,
     id: 2
   },
   {
     name: "Ashley",
-    score: 95,
     id: 3
   },
   {
     name: "James",
-    score: 80,
     id: 4
   }
       ]
    };
 
+
+  handleRemovePlayer = (id) => {
+    this.setState(prevState => {
+      return{
+      players: prevState.players.filter()   
+    }
+      
+    });
+  } 
+
+
  render() {
   return (
     <div className="scoreboard">
       
-      <Header title= "My Scoreboard" totalPlayers={props.intialPlayers.length} />
+      <Header title= "My Scoreboard" totalPlayers={this.state.palyers.length} />
 
       {/*(First we passed the Props to the Player which are name and score then passed props argumetn to Player Component above)*/}
       {/* Players list*/}
       {/* Now we're looping through an array through map and getting the object values */}
 
-      {props.intialPlayers.map( player =>
+      {this.state.players.map( player =>
         <Player 
         name={player.name}
         key={player.id.toString()}
@@ -138,6 +122,6 @@ class App extends React.Component {
 {/* We're passing props of initialPlayers and giving it the players array declared above*/}
 
 ReactDOM.render(
-  <App intialPlayers={players} />,
+  <App />,
   document.getElementById('root')
 );
