@@ -15,7 +15,8 @@ const Player = (props) => {
   return (
     <div className="player">
       <span className="player-name">
-        {props.name}
+        <button className="remove-player" onClick={ () => props.removePlayer(props.id) }>✖</button>
+         {props.name}
       </span>
 
       <Counter />
@@ -89,7 +90,7 @@ class App extends React.Component {
   handleRemovePlayer = (id) => {
     this.setState(prevState => {
       return{
-      players: prevState.players.filter()   
+      players: prevState.players.filter(p => p.id !== id)   
     }
       
     });
@@ -100,7 +101,7 @@ class App extends React.Component {
   return (
     <div className="scoreboard">
       
-      <Header title= "My Scoreboard" totalPlayers={this.state.palyers.length} />
+      <Header title= "My Scoreboard" totalPlayers={this.state.players.length} />
 
       {/*(First we passed the Props to the Player which are name and score then passed props argumetn to Player Component above)*/}
       {/* Players list*/}
@@ -109,7 +110,9 @@ class App extends React.Component {
       {this.state.players.map( player =>
         <Player 
         name={player.name}
+        id={player.id}
         key={player.id.toString()}
+        removePlayer={this.handleRemovePlayer}
         />
       )}  
 
