@@ -55,15 +55,24 @@ class Counter extends React.Component {
       };
 
 
-  incrementScore() {
-     console.log("Hi, from inside of  incrementScore!");
+  incrementScore = () => {
+     this.setState({
+      score: this.state.score + 1
+     });
   }
-  
+ 
+
+  decrementScore = () => {
+     this.setState({
+      score: this.state.score - 1
+     });
+  }
+
 
   render(){
     return (
     <div className="counter">
-      <button className="counter-action decrement"> - </button>
+      <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
       <span className="counter-score">{this.state.score}</span>
       <button className="counter-action increment" onClick={this.incrementScore}> + </button>
     </div>
@@ -71,8 +80,8 @@ class Counter extends React.Component {
   }
 }
 
-
-{/* We're not calling this.incrementScore() as in JS as we just need a reference to it not a call  */}
+ {/* Turned the method into an arrow function so that we dont need code like " onClick={this.incrementScore.bind(this)  "  */}
+{/* We're not calling this.incrementScore() as in JS as we just need a reference to it not a call */}
 
 const App = (props) => {
   return (
