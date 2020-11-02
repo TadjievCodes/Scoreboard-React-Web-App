@@ -85,7 +85,34 @@ class Counter extends React.Component {
  {/* Turned the method into an arrow function so that we dont need code like " onClick={this.incrementScore.bind(this)  "  */}
 {/* We're not calling this.incrementScore() as in JS as we just need a reference to it not a call */}
 
-const App = (props) => {
+class App extends React.Component {
+   
+   state = {
+     players: [
+        {
+    name: "Guil",
+    score: 50,
+    id: 1
+  },
+  {
+    name: "Treasure",
+    score: 85,
+    id: 2
+  },
+  {
+    name: "Ashley",
+    score: 95,
+    id: 3
+  },
+  {
+    name: "James",
+    score: 80,
+    id: 4
+  }
+      ]
+   };
+
+ render() {
   return (
     <div className="scoreboard">
       
@@ -105,6 +132,7 @@ const App = (props) => {
       
     </div>
   );
+ }
 }
 
 {/* We're passing props of initialPlayers and giving it the players array declared above*/}
